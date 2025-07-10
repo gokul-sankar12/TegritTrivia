@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TegritTriviaFullStack", "TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack.csproj", "{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TegritTriviaFullStack.Client", "TegritTriviaFullStack\TegritTriviaFullStack.Client\TegritTriviaFullStack.Client.csproj", "{E1F58C50-0560-4843-9867-B2E1A096388C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateNewQuiz", "CreateNewQuiz\CreateNewQuiz.csproj", "{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F58C50-0560-4843-9867-B2E1A096388C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F58C50-0560-4843-9867-B2E1A096388C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F58C50-0560-4843-9867-B2E1A096388C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F58C50-0560-4843-9867-B2E1A096388C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D6A7E38-4A8E-43C3-9C4A-4A75FA30D3F7}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,161 @@
+﻿@* @page "/basicquiz"
+@using System.Web
+@using TegritTrivia.Models
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
+@inject PersistentComponentState PersistentComponentState
+
+<h3>BasicQuiz</h3>
+
+@if (showResults == false)
+{
+    <div class="quiz-container">
+        <h2>Question @(currentQuestionIndex + 1)</h2>
+        <p>@HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Question)</p>
+        <div class="options">
+            @for (int i = 0; i < Questions.Results[currentQuestionIndex].Options.Count(); i++)
+            {
+                var index = HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Options[i]);
+                <button class="@GetOptionClass(index)" @onclick="() => SelectOption(index)">
+                    @HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Options[i])
+                </button>
+            }
+        </div>
+        
+        @if (isAnswered)
+        {
+            @if (currentQuestionIndex > 0)
+            {
+                <button class="back-button" @onclick="PreviousQuestion">Back</button>
+            }
+
+            @if (currentQuestionIndex < Questions.Results.Count() - 1)
+            {
+                <button class="next-button" @onclick="NextQuestion">Next Question</button>
+            }
+            else
+            {
+                <button class="next-button" @onclick="ShowResults">Show Results</button>
+            }
+        }
+    </div>
+}
+else
+{
+    <div class="results">
+        <h2>Quiz Complete!</h2>
+        <p>Correct Answers: @correctAnswers</p>
+        <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
+        <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
+    </div>
+}
+
+@if (Questions == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <ul>
+        @foreach (var question in Questions.Results)
+        {
+            <li>
+
+                <strong>@(HttpUtility.HtmlDecode(question.Question))</strong><br />
+                Correct Answer: @question.Correct_Answer
+                @foreach (var options in question.Options)
+                {
+                    <p>@options</p>
+                }
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private string name = "Document Data List";
+    private PersistingComponentStateSubscription persistingSubscription;
+    private int currentQuestionIndex = 0;
+    private string selectedOption = string.Empty;
+    private bool isAnswered = false;
+    private int correctAnswers = 0;
+    private bool showResults = false;
+
+    // Attempt at calling Open Trivia Database API to generate questions
+    private TriviaResponse Questions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
+
+        if (PersistentComponentState.TryTakeFromJson<TriviaResponse>(name, out var persistedList))
+        {
+            Questions = persistedList;
+        }
+        else
+        {
+            if (Questions == null)
+            {
+                var response = HttpClient.GetFromJsonAsync<TriviaResponse>("https://opentdb.com/api.php?amount=5");
+                Questions = response.Result;
+            }
+        }
+    }
+
+    private Task PersistData()
+    {
+        PersistentComponentState.PersistAsJson(name, Questions);
+        return Task.CompletedTask;
+    }
+
+    private void Dispose()
+    {
+        persistingSubscription.Dispose();
+    }
+
+    private void SelectOption(string option)
+    {
+        selectedOption = option;
+        Questions.Results[currentQuestionIndex].SelectedOption = option;
+        isAnswered = true;
+    }
+
+    private void NextQuestion()
+    {
+        currentQuestionIndex++;
+        selectedOption = Questions.Results[currentQuestionIndex].SelectedOption == null ? string.Empty : Questions.Results[currentQuestionIndex].SelectedOption;
+        isAnswered = false;
+    }
+
+    private void PreviousQuestion()
+    {
+        currentQuestionIndex--;
+        selectedOption = Questions.Results[currentQuestionIndex].SelectedOption;
+        isAnswered = false;
+    }
+
+    private void ShowResults()
+    {
+        currentQuestionIndex = Questions.Results.Count();
+        showResults = true;
+
+        foreach (var question in Questions.Results)
+        {
+            if (question.Correct_Answer == question.SelectedOption)
+            {
+                correctAnswers++;
+            }
+        }
+    }
+
+    private string GetOptionClass(string option)
+    {
+        if (option == Questions.Results[currentQuestionIndex].SelectedOption)
+        {
+            return "option selected";
+        }
+
+        return "option";
+    }
+}
+ *@
