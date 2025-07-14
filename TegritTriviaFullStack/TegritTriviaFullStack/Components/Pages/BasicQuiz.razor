@@ -7,50 +7,38 @@
 
 <h3>BasicQuiz</h3>
 
+@if (showResults == true)
+{
+    <div class="results">
+        <h2>Quiz Complete!</h2>
+        <p>Correct Answers: @correctAnswers</p>
+        <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
+        <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
+    </div>
+}
+
 @if (resultsList != null && resultsList.Count() > 0)
 {
-    @if (showResults == false)
+
+    @foreach (var question in resultsList)
     {
-        <div class="quiz-container">
-            <h2>Question @(currentQuestionIndex + 1)</h2>
-            <p>@HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Question)</p>
+        <div class="quiz-container1">
+            <p>@HttpUtility.HtmlDecode(question.Question)</p>
             <div class="options">
-                @for (int i = 0; i < resultsList[currentQuestionIndex].Options.Count(); i++)
+                @for (int i=0; i < question.Options.Count(); i++)
                 {
-                    var index = HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Options[i]);
-                    <button class="@GetOptionClass(index)" @onclick="() => SelectOption(index)">
-                        @HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Options[i])
+                    var index = HttpUtility.HtmlDecode(question.Options[i]);
+                    <button class="@GetOptionClass(index, question, i)" @onclick="() => SelectOption(index, question)" disabled="@(showResults)">
+                        @HttpUtility.HtmlDecode(question.Options[i])
                     </button>
                 }
             </div>
-
-            @if (isAnswered)
-            {
-                @if (currentQuestionIndex > 0)
-                {
-                    <button class="back-button" @onclick="PreviousQuestion">Back</button>
-                }
-
-                @if (currentQuestionIndex < Questions.Results.Count() - 1)
-                {
-                    <button class="next-button" @onclick="NextQuestion">Next Question</button>
-                }
-                else
-                {
-                    <button class="next-button" @onclick="ShowResults">Show Results</button>
-                }
-            }
         </div>
     }
-    else
-    {
-        <div class="results">
-            <h2>Quiz Complete!</h2>
-            <p>Correct Answers: @correctAnswers</p>
-            <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
-            <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
-        </div>
-    }
+
+    <button class="next-button" @onclick="SaveAnswers">Save Answers</button>
+
+    <button class="next-button" @onclick="ShowResults">Show Results</button>
 }
 else
 {
@@ -82,7 +70,7 @@ else
 @code {
     private string name = "Document Data List";
     private PersistingComponentStateSubscription persistingSubscription;
-    private int currentQuestionIndex = 0;
+    // private int currentQuestionIndex = 0;
     private string selectedOption = string.Empty;
     private bool isAnswered = false;
     private int correctAnswers = 0;
@@ -106,7 +94,9 @@ else
             if (Questions == null)
             {
                 var date = DateTime.Today.ToString("yyyy-MM-dd");
-                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"http://localhost:7279/api/quiz?date={date}");
+
+                // Call actual API for testing (so we don't call Azure Function)
+                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"https://opentdb.com/api.php?amount=10");
 
                 if (triviaResponse == null)
                 {
@@ -136,30 +126,32 @@ else
         persistingSubscription.Dispose();
     }
 
-    private void SelectOption(string option)
+    private void SelectOption(string option, TriviaResults question)
     {
+        var index = resultsList.FindIndex(x => x.Equals(question));
+
         selectedOption = option;
-        resultsList[currentQuestionIndex].SelectedOption = option;
+        resultsList[index].SelectedOption = option;
         isAnswered = true;
     }
 
-    private void NextQuestion()
-    {
-        currentQuestionIndex++;
-        selectedOption = resultsList[currentQuestionIndex].SelectedOption == null ? string.Empty : resultsList[currentQuestionIndex].SelectedOption;
-        isAnswered = false;
-    }
+    // private void NextQuestion()
+    // {
+    //     currentQuestionIndex++;
+    //     selectedOption = resultsList[currentQuestionIndex].SelectedOption == null ? string.Empty : resultsList[currentQuestionIndex].SelectedOption;
+    //     isAnswered = false;
+    // }
 
-    private void PreviousQuestion()
-    {
-        currentQuestionIndex--;
-        selectedOption = resultsList[currentQuestionIndex].SelectedOption;
-        isAnswered = false;
-    }
+    // private void PreviousQuestion()
+    // {
+    //     currentQuestionIndex--;
+    //     selectedOption = resultsList[currentQuestionIndex].SelectedOption;
+    //     isAnswered = false;
+    // }
 
     private void ShowResults()
     {
-        currentQuestionIndex = Questions.Results.Count();
+        // currentQuestionIndex = Questions.Results.Count();
         showResults = true;
 
         foreach (var question in Questions.Results)
@@ -171,13 +163,35 @@ else
         }
     }
 
-    private string GetOptionClass(string option)
+    private string GetOptionClass(string option, TriviaResults question, int index)
     {
-        if (option == resultsList[currentQuestionIndex].SelectedOption)
+        var resultsIndex = resultsList.FindIndex(x => x.Equals(question));
+
+        if (showResults == false)
         {
-            return "option selected";
+            if (option == resultsList[resultsIndex].SelectedOption)
+            {
+                return "option selected";
+            }
+        }
+        else
+        {
+            if (index == resultsList[resultsIndex].Options.IndexOf(resultsList[resultsIndex].Correct_Answer))
+            {
+                return "option correct";
+            }
+
+            if (index == resultsList[resultsIndex].Options.IndexOf(resultsList[resultsIndex].SelectedOption))
+            {
+                return "option wrong";
+            }
         }
 
         return "option";
+    }
+
+    private void SaveAnswers()
+    {
+        Console.WriteLine("Save Answers button pressed. Not implemented yet");
     }
 }

@@ -230,6 +230,13 @@ main[b-2ow025sion] {
     border-radius: 10px;
 }
 
+.quiz-container1[b-e63gf1aauy] {
+    max-width: 600px;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .options[b-e63gf1aauy] {
     display: grid;
     grid-template-columns: 1fr 1fr;
