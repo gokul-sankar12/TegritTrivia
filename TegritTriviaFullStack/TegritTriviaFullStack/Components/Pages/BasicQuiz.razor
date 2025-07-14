@@ -1,4 +1,4 @@
-﻿@* @page "/basicquiz"
+﻿@page "/basicquiz"
 @using System.Web
 @using TegritTrivia.Models
 @rendermode InteractiveServer
@@ -7,47 +7,54 @@
 
 <h3>BasicQuiz</h3>
 
-@if (showResults == false)
+@if (resultsList != null && resultsList.Count() > 0)
 {
-    <div class="quiz-container">
-        <h2>Question @(currentQuestionIndex + 1)</h2>
-        <p>@HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Question)</p>
-        <div class="options">
-            @for (int i = 0; i < Questions.Results[currentQuestionIndex].Options.Count(); i++)
+    @if (showResults == false)
+    {
+        <div class="quiz-container">
+            <h2>Question @(currentQuestionIndex + 1)</h2>
+            <p>@HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Question)</p>
+            <div class="options">
+                @for (int i = 0; i < resultsList[currentQuestionIndex].Options.Count(); i++)
+                {
+                    var index = HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Options[i]);
+                    <button class="@GetOptionClass(index)" @onclick="() => SelectOption(index)">
+                        @HttpUtility.HtmlDecode(resultsList[currentQuestionIndex].Options[i])
+                    </button>
+                }
+            </div>
+
+            @if (isAnswered)
             {
-                var index = HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Options[i]);
-                <button class="@GetOptionClass(index)" @onclick="() => SelectOption(index)">
-                    @HttpUtility.HtmlDecode(Questions.Results[currentQuestionIndex].Options[i])
-                </button>
+                @if (currentQuestionIndex > 0)
+                {
+                    <button class="back-button" @onclick="PreviousQuestion">Back</button>
+                }
+
+                @if (currentQuestionIndex < Questions.Results.Count() - 1)
+                {
+                    <button class="next-button" @onclick="NextQuestion">Next Question</button>
+                }
+                else
+                {
+                    <button class="next-button" @onclick="ShowResults">Show Results</button>
+                }
             }
         </div>
-        
-        @if (isAnswered)
-        {
-            @if (currentQuestionIndex > 0)
-            {
-                <button class="back-button" @onclick="PreviousQuestion">Back</button>
-            }
-
-            @if (currentQuestionIndex < Questions.Results.Count() - 1)
-            {
-                <button class="next-button" @onclick="NextQuestion">Next Question</button>
-            }
-            else
-            {
-                <button class="next-button" @onclick="ShowResults">Show Results</button>
-            }
-        }
-    </div>
+    }
+    else
+    {
+        <div class="results">
+            <h2>Quiz Complete!</h2>
+            <p>Correct Answers: @correctAnswers</p>
+            <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
+            <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
+        </div>
+    }
 }
 else
 {
-    <div class="results">
-        <h2>Quiz Complete!</h2>
-        <p>Correct Answers: @correctAnswers</p>
-        <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
-        <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
-    </div>
+    <p>Loading Quiz...</p>
 }
 
 @if (Questions == null)
@@ -83,6 +90,7 @@ else
 
     // Attempt at calling Open Trivia Database API to generate questions
     private TriviaResponse Questions;
+    private List<TriviaResults> resultsList = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -91,13 +99,28 @@ else
         if (PersistentComponentState.TryTakeFromJson<TriviaResponse>(name, out var persistedList))
         {
             Questions = persistedList;
+            resultsList = Questions.Results?.ToList() ?? new List<TriviaResults>();
         }
         else
         {
             if (Questions == null)
             {
-                var response = HttpClient.GetFromJsonAsync<TriviaResponse>("https://opentdb.com/api.php?amount=5");
-                Questions = response.Result;
+                var date = DateTime.Today.ToString("yyyy-MM-dd");
+                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"http://localhost:7279/api/quiz?date={date}");
+
+                if (triviaResponse == null)
+                {
+                    Console.WriteLine("No triviaRepsonse found");
+                }
+                else
+                {
+                    Console.WriteLine("Questions is not null");
+                    Questions = triviaResponse;
+                    Console.WriteLine(Questions.Id + Questions.ResponseCode);
+                    resultsList = Questions.Results?.ToList() ?? new List<TriviaResults>();
+                    Console.WriteLine($"Loaded {resultsList.Count} questions.");
+                    StateHasChanged();
+                }
             }
         }
     }
@@ -116,21 +139,21 @@ else
     private void SelectOption(string option)
     {
         selectedOption = option;
-        Questions.Results[currentQuestionIndex].SelectedOption = option;
+        resultsList[currentQuestionIndex].SelectedOption = option;
         isAnswered = true;
     }
 
     private void NextQuestion()
     {
         currentQuestionIndex++;
-        selectedOption = Questions.Results[currentQuestionIndex].SelectedOption == null ? string.Empty : Questions.Results[currentQuestionIndex].SelectedOption;
+        selectedOption = resultsList[currentQuestionIndex].SelectedOption == null ? string.Empty : resultsList[currentQuestionIndex].SelectedOption;
         isAnswered = false;
     }
 
     private void PreviousQuestion()
     {
         currentQuestionIndex--;
-        selectedOption = Questions.Results[currentQuestionIndex].SelectedOption;
+        selectedOption = resultsList[currentQuestionIndex].SelectedOption;
         isAnswered = false;
     }
 
@@ -150,7 +173,7 @@ else
 
     private string GetOptionClass(string option)
     {
-        if (option == Questions.Results[currentQuestionIndex].SelectedOption)
+        if (option == resultsList[currentQuestionIndex].SelectedOption)
         {
             return "option selected";
         }
@@ -158,4 +181,3 @@ else
         return "option";
     }
 }
- *@

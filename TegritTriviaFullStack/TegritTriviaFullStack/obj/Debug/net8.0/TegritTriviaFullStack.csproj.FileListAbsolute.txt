@@ -179,3 +179,4 @@ C:\Users\gokul.sankar\source\repos\TegritTriviaFullStack\TegritTriviaFullStack\T
 C:\Users\gokul.sankar\source\repos\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack\obj\Debug\net8.0\TegritTriviaFullStack.genruntimeconfig.cache
 C:\Users\gokul.sankar\source\repos\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack\obj\Debug\net8.0\ref\TegritTriviaFullStack.dll
 C:\Users\gokul.sankar\source\repos\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack\obj\Debug\net8.0\scopedcss\Components\Pages\BasicQuiz.razor.rz.scp.css
+C:\Users\gokul.sankar\source\repos\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack\obj\Debug\net8.0\TegritTriviaFullStack.sourcelink.json
