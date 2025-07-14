@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TegritTriviaFullStack.Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateNewQuiz", "CreateNewQuiz\CreateNewQuiz.csproj", "{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetQuizByDate", "GetQuizByDate\GetQuizByDate.csproj", "{046088FB-1784-4609-A831-28BC49B0CA7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046088FB-1784-4609-A831-28BC49B0CA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046088FB-1784-4609-A831-28BC49B0CA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046088FB-1784-4609-A831-28BC49B0CA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046088FB-1784-4609-A831-28BC49B0CA7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
