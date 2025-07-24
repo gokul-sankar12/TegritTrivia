@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TegritTrivia.Models;
+using TegritTriviaFullStack.Models;
 
 namespace TegritTriviaFullStack.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public IConfiguration _config { get; set; }
 
@@ -20,5 +22,6 @@ namespace TegritTriviaFullStack.Data
         public DbSet<QuizForm> QuizForm { get; set; }
         public DbSet<TriviaResponse> TriviaResponse { get; set; }
         public DbSet<TriviaResults> TriviaResults { get; set; }
+        public DbSet<UserQuiz> UserQuiz { get; set; }
     }
 }

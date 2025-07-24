@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XdnZ2rsMmfg=",
+  "dgSpecHash": "zDIGP+SC7ms=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
+  "projectFilePath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.17\\microsoft.aspnetcore.authorization.8.0.17.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.17\\microsoft.aspnetcore.components.8.0.17.nupkg.sha512",

@@ -1,0 +1,3 @@
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Release\net8.0\staticwebassets.build.json
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Release\net8.0\staticwebassets.build.json
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Release\net8.0\staticwebassets.build.json

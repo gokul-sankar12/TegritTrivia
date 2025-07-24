@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Data.SqlClient;
@@ -12,14 +11,11 @@ namespace GetQuizByDate;
 public class GetQuizByDate
 {
     private readonly ILogger<GetQuizByDate> _logger;
-    private readonly string _connectionString;
 
     public GetQuizByDate(ILoggerFactory loggerFactory)
     {
         _logger = loggerFactory.CreateLogger<GetQuizByDate>();
-        _connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
     }
-
 
     [Function("GetQuizByDate")]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "quiz")] HttpRequestData req)
@@ -32,12 +28,18 @@ public class GetQuizByDate
         if (!DateOnly.TryParse(dateParam, out var quizDate))
         {
             var badResponse = req.CreateResponse(HttpStatusCode.BadRequest);
+            _logger.LogInformation("Invalid or missing 'date' parameter. Use format YYYY-MM-DD.");
             await badResponse.WriteStringAsync("Invalid or missing 'date' parameter. Use format YYYY-MM-DD.");
             return badResponse;
         }
 
+        var _connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
+        _logger.LogInformation(_connectionString);
+
         using var connection = new SqlConnection(_connectionString);
+        _logger.LogInformation("Come this far");
         await connection.OpenAsync();
+        _logger.LogInformation("Able to open a stable connection");
 
         // Get TriviaResponseId from QuizForm
         _logger.LogInformation("Querying QuizForm using date parameter to get TriviaResponseId");

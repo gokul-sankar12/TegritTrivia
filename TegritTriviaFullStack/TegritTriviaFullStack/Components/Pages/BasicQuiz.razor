@@ -1,6 +1,8 @@
 ﻿@page "/basicquiz"
 @using System.Web
+@using System.Text.Json
 @using TegritTrivia.Models
+@using System.Collections.Generic;
 @rendermode InteractiveServer
 @inject HttpClient HttpClient
 @inject PersistentComponentState PersistentComponentState
@@ -95,8 +97,11 @@ else
             {
                 var date = DateTime.Today.ToString("yyyy-MM-dd");
 
-                // Call actual API for testing (so we don't call Azure Function)
-                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"https://opentdb.com/api.php?amount=10");
+                // Call with test date for testing [API for TEST]
+                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"https://getquizbydate-eye3b0e0ctambwey.centralus-01.azurewebsites.net/api/quiz?date=2025-07-14");
+
+                // Call GetUserAnswers Azure Function to get user selected UserOptions [TEST]
+                string JsonEncodedUserOptions = await HttpClient.GetFromJsonAsync<string>($"http://localhost:7279/api/username/quiz/get?username=gokul.sankar@tegrit.com&date=2025-07-14");
 
                 if (triviaResponse == null)
                 {
@@ -108,6 +113,28 @@ else
                     Questions = triviaResponse;
                     Console.WriteLine(Questions.Id + Questions.ResponseCode);
                     resultsList = Questions.Results?.ToList() ?? new List<TriviaResults>();
+
+                    List<string> UserOptions;
+
+                    if (string.IsNullOrWhiteSpace(JsonEncodedUserOptions) || JsonEncodedUserOptions == "\"[]\"")
+                    {
+                        UserOptions = new List<string>();
+                    }
+                    else
+                    {
+                        UserOptions = JsonSerializer.Deserialize<List<string>>(JsonEncodedUserOptions);
+                    }
+
+                    if (UserOptions != null && UserOptions.Count() == resultsList.Count())
+                    {
+                        Console.WriteLine("Entered if condition");
+                        for (int i = 0; i < resultsList.Count(); i++)
+                        {
+                            resultsList[i].SelectedOption = UserOptions[i];
+                            Console.WriteLine(resultsList[i].SelectedOption);
+                        }
+                    }
+
                     Console.WriteLine($"Loaded {resultsList.Count} questions.");
                     StateHasChanged();
                 }
@@ -190,8 +217,36 @@ else
         return "option";
     }
 
-    private void SaveAnswers()
+    public class UpdateUserAnswersRequest
     {
-        Console.WriteLine("Save Answers button pressed. Not implemented yet");
+        public string Username { get; set; }
+        public string Date { get; set; }
+        public List<string> UserOptions { get; set; }
+    }
+
+
+    private async Task SaveAnswers()
+    {
+        var userOptions = resultsList.Select(r => r.SelectedOption ?? "").ToList();
+
+        var payload = new UpdateUserAnswersRequest
+        {
+            Username = "gokul.sankar@tegrit.com",
+            Date = "2025-07-14",
+            UserOptions = userOptions
+        };
+
+        var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions?", payload);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Handle success
+            Console.WriteLine("UserOptions successfully saved");
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine("Error saving UserOptions");
+        }
     }
 }

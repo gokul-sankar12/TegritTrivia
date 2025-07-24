@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "UserAnswers": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7279",
+      "launchBrowser": false
+    }
+  }
+}

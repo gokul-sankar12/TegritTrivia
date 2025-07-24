@@ -5,17 +5,18 @@
     <OutputType>Exe</OutputType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>b5baaedc-11de-4c70-b6f1-b7f2c74c1e96</UserSecretsId>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="local.settings.json" />
+  </ItemGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.0.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TegritTriviaFullStack\TegritTriviaFullStack.Client\TegritTriviaFullStack.Client.csproj" />
-    <ProjectReference Include="..\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack.csproj" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.5" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
   </ItemGroup>
 </Project>

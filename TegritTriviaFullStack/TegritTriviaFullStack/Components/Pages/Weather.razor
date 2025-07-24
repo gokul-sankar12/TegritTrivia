@@ -1,5 +1,7 @@
 ﻿@page "/weather"
 @attribute [StreamRendering]
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
 
 <PageTitle>Weather</PageTitle>
 
@@ -36,6 +38,8 @@ else
     </table>
 }
 
+<button class="btn-primary" @onclick="TestUpdateAnswers">Test Update Answers</button>
+
 @code {
     private WeatherForecast[]? forecasts;
 
@@ -60,5 +64,37 @@ else
         public int TemperatureC { get; set; }
         public string? Summary { get; set; }
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+
+    public class UpdateUserAnswersRequest
+    {
+        public string Username { get; set; }
+        public string Date { get; set; }
+        public List<string> UserOptions { get; set; }
+    }
+
+    private async Task TestUpdateAnswers()
+    {
+        Console.WriteLine("Button pressed");
+
+        var payload = new UpdateUserAnswersRequest
+        {
+            Username = "gokul.sankar@tegrit.com",
+            Date = "2025-07-14",
+            UserOptions = new List<string>{"teststring", "teststringfosho"},
+        };
+
+        var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions?", payload);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Handle success
+            Console.WriteLine("UserOptions successfully saved");
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine("Error saving UserOptions");
+        }
     }
 }
