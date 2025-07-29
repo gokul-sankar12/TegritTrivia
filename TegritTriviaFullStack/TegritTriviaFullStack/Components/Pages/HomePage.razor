@@ -1,0 +1,67 @@
+﻿@page "/homepage"
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@rendermode InteractiveServer
+@inject PersistentComponentState PersistentComponentState
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<h3>HomePage</h3>
+
+<AuthorizeView>
+    <div class="wrapper">
+        <SfDatePicker TValue="DateOnly?" @bind-Value="@DateValue" Format="MM-dd-yyyy" Placeholder="Choose a date"> </SfDatePicker>
+    </div>
+
+    <button class="btn-primary" @onclick="NavigateToBasicQuiz"> </button>
+</AuthorizeView>
+
+@code {
+    private string name = "Document Data List";
+    private PersistingComponentStateSubscription persistingSubscription;
+    private string username = string.Empty;
+
+    public DateOnly? DateValue { get; set; } = DateOnly.FromDateTime(DateTime.Today);
+
+    protected override async Task OnInitializedAsync()
+    {
+        persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
+
+        if (PersistentComponentState.TryTakeFromJson<string>(name, out var persistedUsername))
+        {
+            username = persistedUsername!;
+        }
+        else
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity is not null && user.Identity.IsAuthenticated)
+            {
+                username = user.Identity.Name!;
+            }
+            else
+            {
+                username = string.Empty;
+            }
+        }
+    }
+
+    private Task PersistData()
+    {
+        PersistentComponentState.PersistAsJson(name, username);
+        return Task.CompletedTask;
+    }
+
+    private void Dispose()
+    {
+        persistingSubscription.Dispose();
+    }
+
+    private void NavigateToBasicQuiz()
+    {
+        string? dateString = DateValue?.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+        NavigationManager.NavigateTo($"/basicquiz/{dateString}");
+    }
+}

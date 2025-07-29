@@ -2076,13 +2076,14 @@ C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriv
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\y871c7uunp-tptq2av103.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\ycfqgt25qx-lfu7j35m59.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\ctswvxrv5f-oyz0vx2fzb.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\sz1jxgtld0-kijod0ooxr.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\g1dilc76n3-gsl517dlk8.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\vpmgq2xbir-qf3ftw1zv2.gz
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\sz1jxgtld0-tanflglmty.gz
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\g1dilc76n3-itxzxyrc58.gz
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\vpmgq2xbir-pxow7h2nfh.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\TegritTr.FA35CC36.Up2Date
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\TegritTriviaFullStack.Client.dll
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\refint\TegritTriviaFullStack.Client.dll

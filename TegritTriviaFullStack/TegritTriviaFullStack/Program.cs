@@ -5,6 +5,7 @@ using TegritTriviaFullStack.Client.Pages;
 using TegritTriviaFullStack.Components;
 using TegritTriviaFullStack.Components.Account;
 using TegritTriviaFullStack.Data;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddSyncfusionBlazor();
+
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NNaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWXlec3RcRGJdVkx3WUZWYE4=");
 
 // Add HTTP Client
 builder.Services.AddHttpClient();

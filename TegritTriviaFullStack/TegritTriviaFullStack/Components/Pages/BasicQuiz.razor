@@ -1,76 +1,85 @@
-﻿@page "/basicquiz"
+﻿@page "/basicquiz/{QuizDate}"
 @using System.Web
 @using System.Text.Json
 @using TegritTrivia.Models
 @using System.Collections.Generic;
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize]
 @rendermode InteractiveServer
 @inject HttpClient HttpClient
 @inject PersistentComponentState PersistentComponentState
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <h3>BasicQuiz</h3>
 
-@if (showResults == true)
-{
-    <div class="results">
-        <h2>Quiz Complete!</h2>
-        <p>Correct Answers: @correctAnswers</p>
-        <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
-        <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
-    </div>
-}
-
-@if (resultsList != null && resultsList.Count() > 0)
-{
-
-    @foreach (var question in resultsList)
+<AuthorizeView>
+    @if (showResults == true)
     {
-        <div class="quiz-container1">
-            <p>@HttpUtility.HtmlDecode(question.Question)</p>
-            <div class="options">
-                @for (int i=0; i < question.Options.Count(); i++)
-                {
-                    var index = HttpUtility.HtmlDecode(question.Options[i]);
-                    <button class="@GetOptionClass(index, question, i)" @onclick="() => SelectOption(index, question)" disabled="@(showResults)">
-                        @HttpUtility.HtmlDecode(question.Options[i])
-                    </button>
-                }
-            </div>
+        <div class="results">
+            <h2>Quiz Complete!</h2>
+            <p>Correct Answers: @correctAnswers</p>
+            <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
+            <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
         </div>
     }
 
-    <button class="next-button" @onclick="SaveAnswers">Save Answers</button>
+    @if (resultsList != null && resultsList.Count() > 0)
+    {
 
-    <button class="next-button" @onclick="ShowResults">Show Results</button>
-}
-else
-{
-    <p>Loading Quiz...</p>
-}
-
-@if (Questions == null)
-{
-    <p>Loading...</p>
-}
-else
-{
-    <ul>
-        @foreach (var question in Questions.Results)
+        @foreach (var question in resultsList)
         {
-            <li>
-
-                <strong>@(HttpUtility.HtmlDecode(question.Question))</strong><br />
-                Correct Answer: @question.Correct_Answer
-                @foreach (var options in question.Options)
-                {
-                    <p>@options</p>
-                }
-            </li>
+            <div class="quiz-container1">
+                <p>@HttpUtility.HtmlDecode(question.Question)</p>
+                <div class="options">
+                    @for (int i=0; i < question.Options.Count(); i++)
+                    {
+                        var index = HttpUtility.HtmlDecode(question.Options[i]);
+                        <button class="@GetOptionClass(index, question, i)" @onclick="() => SelectOption(index, question)" disabled="@(showResults)">
+                            @HttpUtility.HtmlDecode(question.Options[i])
+                        </button>
+                    }
+                </div>
+            </div>
         }
-    </ul>
-}
+
+        <button class="next-button" @onclick="SaveAnswers">Save Answers</button>
+
+        <button class="next-button" @onclick="ShowResults">Show Results</button>
+    }
+    else
+    {
+        <p>Loading Quiz...</p>
+    }
+
+    @if (Questions == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var question in Questions.Results)
+            {
+                <li>
+
+                    <strong>@(HttpUtility.HtmlDecode(question.Question))</strong><br />
+                    Correct Answer: @question.Correct_Answer
+                    @foreach (var options in question.Options)
+                    {
+                        <p>@options</p>
+                    }
+                </li>
+            }
+        </ul>
+    }
+</AuthorizeView>
 
 @code {
+    [Parameter]
+    public string QuizDate { get; set; }
+
     private string name = "Document Data List";
+    private string username = String.Empty;
     private PersistingComponentStateSubscription persistingSubscription;
     // private int currentQuestionIndex = 0;
     private string selectedOption = string.Empty;
@@ -84,6 +93,18 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is not null && user.Identity.IsAuthenticated)
+        {
+            username = user.Identity.Name;
+        }
+        else
+        {
+            username = string.Empty;
+        }
+
         persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
 
         if (PersistentComponentState.TryTakeFromJson<TriviaResponse>(name, out var persistedList))
@@ -95,13 +116,12 @@ else
         {
             if (Questions == null)
             {
-                var date = DateTime.Today.ToString("yyyy-MM-dd");
-
                 // Call with test date for testing [API for TEST]
-                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"https://getquizbydate-eye3b0e0ctambwey.centralus-01.azurewebsites.net/api/quiz?date=2025-07-14");
+                TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"http://getquizbydate-eye3b0e0ctambwey.centralus-01.azurewebsites.net/api/quiz?date={QuizDate}");
 
                 // Call GetUserAnswers Azure Function to get user selected UserOptions [TEST]
-                string JsonEncodedUserOptions = await HttpClient.GetFromJsonAsync<string>($"http://localhost:7279/api/username/quiz/get?username=gokul.sankar@tegrit.com&date=2025-07-14");
+                Console.WriteLine($"http://localhost:7279/api/username/quiz/get?username={username}&date={QuizDate}");
+                string JsonEncodedUserOptions = await HttpClient.GetFromJsonAsync<string>($"http://localhost:7279/api/username/quiz/get?username={username}&date={QuizDate}");
 
                 if (triviaResponse == null)
                 {
@@ -176,7 +196,7 @@ else
     //     isAnswered = false;
     // }
 
-    private void ShowResults()
+    private async Task ShowResults()
     {
         // currentQuestionIndex = Questions.Results.Count();
         showResults = true;
@@ -187,6 +207,28 @@ else
             {
                 correctAnswers++;
             }
+        }
+
+        var userOptions = resultsList.Select(r => r.SelectedOption ?? "").ToList();
+
+        var payload = new UpdateUserAnswersRequest
+        {
+            Username = username,
+            Date = QuizDate,
+            UserOptions = userOptions
+        };
+
+        var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions/submit?", payload);
+
+        if (response.IsSuccessStatusCode)
+        {
+            // Handle success
+            Console.WriteLine("UserOptions updated and UserQuiz successfully submitted");
+        }
+        else
+        {
+            // Handle error
+            Console.WriteLine("Error submitting UserQuiz");
         }
     }
 
@@ -231,8 +273,8 @@ else
 
         var payload = new UpdateUserAnswersRequest
         {
-            Username = "gokul.sankar@tegrit.com",
-            Date = "2025-07-14",
+            Username = username,
+            Date = QuizDate,
             UserOptions = userOptions
         };
 

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TegritTriviaFullStack.Client",
   "resources": {
-    "hash": "sha256-g2XqTM4P75jYD6uRMVWGrvzlfO8Z7AAxxWTcyy0TJwo=",
+    "hash": "sha256-bVnVDgAmBsWzr54lACbD4TwwVzuQS7OPEUoS0dElXpU=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-1QpKPnxEuRCElzcp+e3MrovJeAJkuzqKmRQay/6Aa08="
     },
@@ -211,10 +211,10 @@
       "mscorlib.wasm": "sha256-UnQd0YPXNpwbXsKqO8RAqgUVuwZsSpprfAIPpdV/y1Q=",
       "netstandard.wasm": "sha256-/QbD8JDZyYwfyk89W3qJL3HTAINDCVziZIySHIZcDhw=",
       "System.Private.CoreLib.wasm": "sha256-oBqNgH7R24FqGbaL3XnfQDqn3rk28jERFosgAryKT6U=",
-      "TegritTriviaFullStack.Client.wasm": "sha256-zCV7c8MWfIghjQCN5K145/MT62uLAErhxT24mS6z/Pw="
+      "TegritTriviaFullStack.Client.wasm": "sha256-tWjaPpIQkO5d4Y0XN32IoDeCzZIMwHDNj7livryk3+Y="
     },
     "pdb": {
-      "TegritTriviaFullStack.Client.pdb": "sha256-cNVkwx4Hs2iDwL04zGP30Av5kZdav2Xf2KC1BZjRNBk="
+      "TegritTriviaFullStack.Client.pdb": "sha256-CjEYRhVvVG656sG8SCo0XDDbefzO/cI+087OKVQ7Ck4="
     }
   },
   "cacheBootResources": true,
