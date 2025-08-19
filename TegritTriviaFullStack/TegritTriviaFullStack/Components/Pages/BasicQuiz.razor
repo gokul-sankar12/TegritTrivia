@@ -10,9 +10,23 @@
 @inject PersistentComponentState PersistentComponentState
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<h3>BasicQuiz</h3>
+<div class="header-row">
+    <h3>Basic Quiz</h3>
+    <button class="btn-primary" @onclick="ShowPlayerStatistics">Show Player Statistics</button>
+</div>
 
 <AuthorizeView>
+    @if (showPlayerStatistics == true)
+    {
+        // Have front-end for displaying player statistics. Read from userStatistics variable
+        <div class="results">
+            <h2>Player Statistics for @username!</h2>
+            <p>QuizzesSubmitted: @userStatistics?.QuizzesSubmitted</p>
+            <p>Average Score: @userStatistics?.AverageScore</p>
+            <p>Number of Perfect Quizzes: @userStatistics?.NumPerfectScores</p>
+        </div>
+    }
+
     @if (showResults == true)
     {
         <div class="results">
@@ -20,6 +34,13 @@
             <p>Correct Answers: @correctAnswers</p>
             <p>Wrong Answers: @(Questions.Results.Count() - correctAnswers)</p>
             <p>Total Score: @correctAnswers out of @Questions.Results.Count()</p>
+
+            @if (submitStatus == false)
+            {
+                <div class="alert-danger">
+                    <p>@(responseContent). Here's what your results would have been!</p>
+                </div>
+            }
         </div>
     }
 
@@ -86,6 +107,10 @@
     private bool isAnswered = false;
     private int correctAnswers = 0;
     private bool showResults = false;
+    private bool submitStatus = false;
+    private string? responseContent = string.Empty;
+    private bool showPlayerStatistics = false;
+    private UserStatistics? userStatistics;
 
     // Attempt at calling Open Trivia Database API to generate questions
     private TriviaResponse Questions;
@@ -99,6 +124,18 @@
         if (user.Identity is not null && user.Identity.IsAuthenticated)
         {
             username = user.Identity.Name;
+
+            // Call post request to CreateNewQuiz_HttpTrigger to create a new quiz if one doesn't exist
+            var response = await HttpClient.PostAsync("https://createnewquiz20250729101511.azurewebsites.net/api/createNewQuiz?", null);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Quiz created successfully: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Failed to create quiz: " + response.StatusCode);
+            }
         }
         else
         {
@@ -116,12 +153,15 @@
         {
             if (Questions == null)
             {
+                Console.WriteLine(QuizDate);
+
                 // Call with test date for testing [API for TEST]
                 TriviaResponse triviaResponse = await HttpClient.GetFromJsonAsync<TriviaResponse>($"http://getquizbydate-eye3b0e0ctambwey.centralus-01.azurewebsites.net/api/quiz?date={QuizDate}");
 
                 // Call GetUserAnswers Azure Function to get user selected UserOptions [TEST]
                 Console.WriteLine($"http://localhost:7279/api/username/quiz/get?username={username}&date={QuizDate}");
-                string JsonEncodedUserOptions = await HttpClient.GetFromJsonAsync<string>($"http://localhost:7279/api/username/quiz/get?username={username}&date={QuizDate}");
+                Console.WriteLine($"https://useranswerfunc.azurewebsites.net/api/username/quiz/get?username={username}&date={QuizDate}");
+                string JsonEncodedUserOptions = await HttpClient.GetFromJsonAsync<string>($"https://useranswerfunc.azurewebsites.net/api/username/quiz/get?username={username}&date={QuizDate}");
 
                 if (triviaResponse == null)
                 {
@@ -209,6 +249,8 @@
             }
         }
 
+        // Call Function to Update UserStatistics
+
         var userOptions = resultsList.Select(r => r.SelectedOption ?? "").ToList();
 
         var payload = new UpdateUserAnswersRequest
@@ -218,17 +260,29 @@
             UserOptions = userOptions
         };
 
-        var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions/submit?", payload);
+        var response = await HttpClient.PutAsJsonAsync("https://useranswerfunc.azurewebsites.net/api/username/quiz/useroptions/submit?", payload);
+        responseContent = await response.Content.ReadAsStringAsync();
 
         if (response.IsSuccessStatusCode)
         {
             // Handle success
             Console.WriteLine("UserOptions updated and UserQuiz successfully submitted");
+
+            var payload1 = new UpdateUserStatisticsRequest
+            {
+                Username = username,
+                Date = QuizDate,
+                CorrectAnswers = correctAnswers
+            };
+            var response1 = await HttpClient.PutAsJsonAsync("https://useranswerfunc.azurewebsites.net/api/username/quiz/updateStatistics?", payload1);
+
+            submitStatus = true;
         }
         else
         {
             // Handle error
             Console.WriteLine("Error submitting UserQuiz");
+            submitStatus = false;
         }
     }
 
@@ -266,10 +320,30 @@
         public List<string> UserOptions { get; set; }
     }
 
+    public class UpdateUserStatisticsRequest
+    {
+        public string Username { get; set; }
+        public string Date { get; set; }
+        public int CorrectAnswers { get; set; }
+    }
+
+    public class UserStatistics
+    {
+        public long QuizzesSubmitted { get; set; }
+        public double AverageScore { get; set; }
+        public long NumPerfectScores { get; set; }
+    }
 
     private async Task SaveAnswers()
     {
+        foreach (var word in resultsList)
+        {
+            Console.WriteLine(word.SelectedOption);
+        }
+        
         var userOptions = resultsList.Select(r => r.SelectedOption ?? "").ToList();
+
+        Console.WriteLine(userOptions);
 
         var payload = new UpdateUserAnswersRequest
         {
@@ -278,7 +352,8 @@
             UserOptions = userOptions
         };
 
-        var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions?", payload);
+        var response = await HttpClient.PutAsJsonAsync("https://useranswerfunc.azurewebsites.net/api/username/quiz/useroptions?", payload);
+        // var response = await HttpClient.PutAsJsonAsync("http://localhost:7279/api/username/quiz/useroptions", payload);
 
         if (response.IsSuccessStatusCode)
         {
@@ -289,6 +364,40 @@
         {
             // Handle error
             Console.WriteLine("Error saving UserOptions");
+        }
+    }
+
+    private async Task ShowPlayerStatistics()
+    {
+        if (showPlayerStatistics)
+        {
+            showPlayerStatistics = false;
+        }
+        else
+        {
+            var payload = new UpdateUserStatisticsRequest
+            {
+                Username = username,
+                Date = QuizDate,
+                CorrectAnswers = 0,
+            };
+
+            try
+            {
+                userStatistics = await HttpClient.GetFromJsonAsync<UserStatistics>(
+                    $"https://useranswerfunc.azurewebsites.net/api/username/userstatistics?username={username}");
+
+                if (userStatistics == null)
+                {
+                    Console.WriteLine("Error grabbing UserStatistics. userStatistics variable is null");
+                }
+
+                showPlayerStatistics = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching UserStatistics: {ex.Message}");
+            }
         }
     }
 }

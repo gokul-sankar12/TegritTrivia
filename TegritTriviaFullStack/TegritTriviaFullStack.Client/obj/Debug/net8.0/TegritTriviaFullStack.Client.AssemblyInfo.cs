@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TegritTriviaFullStack.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfdbcc90e026031f984d0be5d33b79442d5c07a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+561fe18c9264916064d93807e5ec20e6a114f65a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TegritTriviaFullStack.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TegritTriviaFullStack.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

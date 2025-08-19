@@ -23,5 +23,8 @@ namespace TegritTriviaFullStack.Data
         public DbSet<TriviaResponse> TriviaResponse { get; set; }
         public DbSet<TriviaResults> TriviaResults { get; set; }
         public DbSet<UserQuiz> UserQuiz { get; set; }
+        public DbSet<Wordle> Wordle { get; set; }
+        public DbSet<UserWordle> UserWordle { get; set; }
+        public DbSet<ValidWords> ValidWords { get; set; }
     }
 }

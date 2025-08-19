@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zDIGP+SC7ms=",
+  "dgSpecHash": "dJXu+VM5sGo=",
   "success": true,
   "projectFilePath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.17\\microsoft.aspnetcore.components.web.8.0.17.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.17\\microsoft.aspnetcore.components.webassembly.8.0.17.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\8.0.17\\microsoft.aspnetcore.components.webassembly.authentication.8.0.17.nupkg.sha512",
+    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\8.0.19\\microsoft.aspnetcore.components.webassembly.devserver.8.0.19.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.17\\microsoft.aspnetcore.metadata.8.0.17.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
@@ -29,10 +30,10 @@
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.jsinterop\\8.0.17\\microsoft.jsinterop.8.0.17.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.17\\microsoft.jsinterop.webassembly.8.0.17.nupkg.sha512",
-    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.18\\microsoft.net.illink.tasks.8.0.18.nupkg.sha512",
-    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.7\\microsoft.net.sdk.webassembly.pack.9.0.7.nupkg.sha512",
+    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.19\\microsoft.net.illink.tasks.8.0.19.nupkg.sha512",
+    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\9.0.8\\microsoft.net.sdk.webassembly.pack.9.0.8.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
-    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.18\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.18.nupkg.sha512"
+    "C:\\Users\\gokul.sankar\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.19\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.19.nupkg.sha512"
   ],
   "logs": []
 }

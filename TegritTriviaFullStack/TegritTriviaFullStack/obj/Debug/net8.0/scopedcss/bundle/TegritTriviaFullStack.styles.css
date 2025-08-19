@@ -222,108 +222,204 @@ main[b-2ow025sion] {
     }
 }
 /* _content/TegritTriviaFullStack/Components/Pages/BasicQuiz.razor.rz.scp.css */
-.quiz-container[b-e63gf1aauy] {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
+body[b-e63gf1aauy] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .quiz-container1[b-e63gf1aauy] {
-    max-width: 600px;
-    margin: 5px;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
 }
+
+    .quiz-container1:hover[b-e63gf1aauy] {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
 
 .options[b-e63gf1aauy] {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
     margin-top: 20px;
 }
 
+button[b-e63gf1aauy] {
+    font-size: 16px;
+}
+
 .option[b-e63gf1aauy] {
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    .option:hover[b-e63gf1aauy] {
+        background-color: #e0e0e0;
+        transform: scale(1.02);
+    }
+
+    .option.correct[b-e63gf1aauy] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+
+    .option.wrong[b-e63gf1aauy] {
+        background-color: #f44336;
+        color: white;
+        border: none;
+    }
+
+    .option.selected[b-e63gf1aauy] {
+        background-color: #0565FF;
+        color: white;
+        border: none;
+    }
+
+.next-button[b-e63gf1aauy],
+.back-button[b-e63gf1aauy] {
+    margin: 20px 10px 0 0;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #0565FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.option:hover[b-e63gf1aauy] {
-    background-color: #e8e8e8;
-}
-
-.option.correct[b-e63gf1aauy] {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.option.wrong[b-e63gf1aauy] {
-    background-color: #f44336;
-    color: white;
-}
-
-.option.selected[b-e63gf1aauy] {
-    background-color: #0565FF;
-    color: white;
-}
-
-.feedback[b-e63gf1aauy] {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-.feedback .correct[b-e63gf1aauy] {
-    color: #4CAF50;
-}
-
-.feedback .wrong[b-e63gf1aauy] {
-    color: #f44336;
-}
-
-.next-button[b-e63gf1aauy] {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.back-button[b-e63gf1aauy] {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: seagreen;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.next-button:hover[b-e63gf1aauy] {
-    background-color: #45a049;
-}
-
-.back-button:hover[b-e63gf1aauy] {
-    background-color: #45a049;
-}
+    .next-button:hover[b-e63gf1aauy],
+    .back-button:hover[b-e63gf1aauy] {
+        background-color: #034fc2;
+    }
 
 .results[b-e63gf1aauy] {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
+
+.alert-danger[b-e63gf1aauy] {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffe0e0;
+    color: #a94442;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+}
+
+.header-row[b-e63gf1aauy] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+    .header-row h3[b-e63gf1aauy] {
+        margin: 0;
+    }
+
+.btn-primary[b-e63gf1aauy] {
+    padding: 8px 16px;
+    background-color: #0565FF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .btn-primary:hover[b-e63gf1aauy] {
+        background-color: #034fc2;
+    }
+
 /* _content/TegritTriviaFullStack/Components/Pages/HomePage.razor.rz.scp.css */
 .wrapper[b-wk6k6chfsq] {
     max-width: 300px;
     margin: 0px auto;
     padding-top: 20px;
+}
+/* _content/TegritTriviaFullStack/Components/Pages/Wordle.razor.rz.scp.css */
+.wordle-container[b-qsogi1cz0b] {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.wordle-row[b-qsogi1cz0b] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.wordle-cell[b-qsogi1cz0b] {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+    .wordle-cell.correct[b-qsogi1cz0b] {
+        background-color: #6aaa64;
+        color: white;
+        border-color: #6aaa64;
+    }
+
+    .wordle-cell.present[b-qsogi1cz0b] {
+        background-color: #c9b458;
+        color: white;
+        border-color: #c9b458;
+    }
+
+    .wordle-cell.absent[b-qsogi1cz0b] {
+        background-color: #787c7e;
+        color: white;
+        border-color: #787c7e;
+    }
+
+.wordle-input[b-qsogi1cz0b] {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.wordle-submit[b-qsogi1cz0b] {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #0565FF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.wordle-result[b-qsogi1cz0b] {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
 }

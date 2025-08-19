@@ -14,8 +14,29 @@
         <SfDatePicker TValue="DateOnly?" @bind-Value="@DateValue" Format="MM-dd-yyyy" Placeholder="Choose a date"> </SfDatePicker>
     </div>
 
-    <button class="btn-primary" @onclick="NavigateToBasicQuiz"> </button>
+    <button class="next-button" @onclick="NavigateToBasicQuiz"> Basic Quiz </button>
+    <button class="next-button" @onclick="NavigateToWordle"> Wordle </button>
 </AuthorizeView>
+
+<style>
+    .next-button,
+    .back-button {
+        margin: 20px 10px 0 0;
+        padding: 12px 24px;
+        font-size: 16px;
+        background-color: #0565FF;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .next-button:hover,
+    .back-button:hover {
+        background-color: #034fc2;
+    }
+</style>
 
 @code {
     private string name = "Document Data List";
@@ -63,5 +84,11 @@
     {
         string? dateString = DateValue?.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
         NavigationManager.NavigateTo($"/basicquiz/{dateString}");
+    }
+
+    private void NavigateToWordle()
+    {
+        string? dateString = DateValue?.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+        NavigationManager.NavigateTo($"/wordle/{dateString}");
     }
 }

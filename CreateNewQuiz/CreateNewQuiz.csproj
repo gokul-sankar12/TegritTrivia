@@ -25,8 +25,4 @@
     </PackageReference>
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TegritTriviaFullStack\TegritTriviaFullStack.Client\TegritTriviaFullStack.Client.csproj" />
-    <ProjectReference Include="..\TegritTriviaFullStack\TegritTriviaFullStack\TegritTriviaFullStack.csproj" />
-  </ItemGroup>
 </Project>

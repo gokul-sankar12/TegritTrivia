@@ -203,3 +203,11 @@ build_metadata.AdditionalFiles.CssScope = b-vv8ynoib4t
 [C:/Users/gokul.sankar/source/repos/TegritTrivia/TegritTriviaFullStack/TegritTriviaFullStack/Components/Pages/BasicQuiz.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCYXNpY1F1aXoucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-e63gf1aauy
+
+[C:/Users/gokul.sankar/source/repos/TegritTrivia/TegritTriviaFullStack/TegritTriviaFullStack/Components/Pages/HomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-wk6k6chfsq
+
+[C:/Users/gokul.sankar/source/repos/TegritTrivia/TegritTriviaFullStack/TegritTriviaFullStack/Components/Pages/Wordle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXb3JkbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-qsogi1cz0b
