@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {}
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
+        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
         "projectName": "TegritTriviaFullStack.Client",
-        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
+        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
         "packagesPath": "C:\\Users\\gokul.sankar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\obj\\",
+        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,16 +59,21 @@
               "target": "Package",
               "version": "[8.0.17, )"
             },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.*-*, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.18, )",
+              "version": "[8.0.19, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.7, )",
+              "version": "[9.0.8, )",
               "autoReferenced": true
             }
           },
@@ -86,7 +91,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[8.0.18, 8.0.18]"
+              "version": "[8.0.19, 8.0.19]"
             }
           ],
           "frameworkReferences": {
@@ -94,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -103,14 +108,14 @@
         }
       }
     },
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
+        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
         "projectName": "TegritTriviaFullStack",
-        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
+        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
         "packagesPath": "C:\\Users\\gokul.sankar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack\\obj\\",
+        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -132,8 +137,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
-                "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj"
+              "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
+                "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj"
               }
             }
           }
@@ -154,6 +159,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.25.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
               "version": "[8.0.18, )"
@@ -175,6 +184,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.18, )"
+            },
+            "Syncfusion.Blazor.Calendars": {
+              "target": "Package",
+              "version": "[30.2.4, )"
+            },
+            "Syncfusion.Blazor.Navigations": {
+              "target": "Package",
+              "version": "[30.2.4, )"
+            },
+            "Syncfusion.Blazor.Themes": {
+              "target": "Package",
+              "version": "[30.2.4, )"
             }
           },
           "imports": [
@@ -196,7 +217,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

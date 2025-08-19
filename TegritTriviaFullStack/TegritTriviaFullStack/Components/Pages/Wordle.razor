@@ -1,0 +1,218 @@
+﻿@page "/wordle/{WordleDate}"
+@using System.Web
+@using System.Text.Json
+@using TegritTrivia.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@rendermode InteractiveServer
+@inject HttpClient HttpClient
+@inject PersistentComponentState PersistentComponentState
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<AuthorizeView>
+    <h3>Wordle</h3>
+
+    <div class="wordle-container">
+        @for (int i = 0; i < maxAttempts; i++)
+        {
+            <div class="wordle-row">
+                @for (int j = 0; j < wordLength; j++)
+                {
+                    var letter = i < guesses.Count ? guesses[i][j].ToString() : "";
+                    var status = i < guessStatuses.Count ? guessStatuses[i][j] : "empty";
+                    <div class="wordle-cell @status">@letter</div>
+                }
+            </div>
+        }
+
+        <input type="text" maxlength="@wordLength" @bind="currentGuess" class="wordle-input" />
+        <button class="wordle-submit" @onclick="SubmitGuess">Submit</button>
+
+        @if (gameOver)
+        {
+            <p class="wordle-result">@resultMessage</p>
+        }
+    </div>
+</AuthorizeView>
+
+@code {
+    [Parameter]
+    public string WordleDate { get; set; }
+    
+    private string targetWord = "COBRA"; // The word to guess
+    private int wordLength => targetWord.Length;
+    private int maxAttempts = 6;
+    private string username = "";
+    private string name = "Document Data List";
+    private PersistingComponentStateSubscription persistingSubscription;
+
+    private List<string> guesses = new();
+    private List<List<string>> guessStatuses = new(); // "correct", "present", "absent"
+    private string currentGuess = "";
+    private bool gameOver = false;
+    private string resultMessage = "";
+
+    public class UserWordleSubmission
+    {
+        public string Username { get; set; }
+        public string Date { get; set; }
+        public List<string> Guesses { get; set; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity is not null && user.Identity.IsAuthenticated)
+        {
+            username = user.Identity.Name;
+
+            // Call post request to CreateWordOfTheDay_HttpTrigger to create a new quiz if one doesn't exist
+            var response = await HttpClient.PostAsync("https://wordle20250818134329.azurewebsites.net/api/createWordOfTheDay?", null);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("New word created successfully: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Failed to create new word: " + response.StatusCode + response.Content);
+            }
+        }
+        else
+        {
+            username = string.Empty;
+        }
+
+        persistingSubscription = PersistentComponentState.RegisterOnPersisting(PersistData);
+
+        if (PersistentComponentState.TryTakeFromJson<List<string>>(name, out var persistedList))
+        {
+            Console.WriteLine("Taking persisted List");
+            guesses = persistedList;
+        }
+        else
+        {
+            if (guesses is null)
+            {
+                Console.WriteLine(WordleDate);
+
+                // Get Word of the Day
+                string WordOfTheDay = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/date/wordoftheday?date={WordleDate}");
+
+                // Call GetUserSubmissions Azure Function to get user guesses UserSubmissions
+                string JsonEncodedUserSubmissions = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/username/wordle/get?username={username}&wordle={WordleDate}");
+
+                if (WordOfTheDay == null)
+                {
+                    Console.WriteLine("No word found for the given date");
+                }
+                else
+                {
+                    targetWord = WordOfTheDay;
+
+                    List<string> UserGuesses;
+
+                    if (string.IsNullOrWhiteSpace(JsonEncodedUserSubmissions) || JsonEncodedUserSubmissions == "\"[]\"")
+                    {
+                        UserGuesses = new List<string>();
+                    }
+                    else
+                    {
+                        UserGuesses = JsonSerializer.Deserialize<List<string>>(JsonEncodedUserSubmissions);
+                    }
+
+                    if (UserGuesses is not null && UserGuesses.Count() < 6)
+                    {
+                        for (int i=0; i < UserGuesses.Count(); i++)
+                        {
+                            currentGuess = UserGuesses[i];
+                            SubmitGuess();
+                        }
+                    }
+
+                    Console.WriteLine($"Loaded {UserGuesses.Count()} questions");
+                    StateHasChanged();
+                }
+            }
+        }
+    }
+
+    private Task PersistData()
+    {
+        PersistentComponentState.PersistAsJson(name, guesses);
+        return Task.CompletedTask;
+    }
+
+    private void Dispose()
+    {
+        persistingSubscription.Dispose();
+    }
+
+    private async Task SubmitGuess()
+    {
+        if (gameOver || currentGuess.Length != wordLength)
+            return;
+
+        currentGuess = currentGuess.ToUpper();
+        guesses.Add(currentGuess);
+
+        var status = new List<string>();
+        for (int i = 0; i < wordLength; i++)
+        {
+            if (currentGuess[i] == targetWord[i])
+                status.Add("correct");
+            else if (targetWord.Contains(currentGuess[i]))
+                status.Add("present");
+            else
+                status.Add("absent");
+        }
+
+        guessStatuses.Add(status);
+
+        if (currentGuess == targetWord)
+        {
+            gameOver = true;
+            resultMessage = "🎉 You guessed the word!";
+
+            var payload_submit = new UserWordleSubmission
+            {
+                Username = username,
+                Date = WordleDate,
+                Guesses = guesses
+            };
+
+            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess?", payload_submit);
+            var responseContent_submit = await response_submit.Content.ReadAsStringAsync();
+        }
+        else if (guesses.Count >= maxAttempts)
+        {
+            gameOver = true;
+            resultMessage = $"❌ Game over! The word was {targetWord}.";
+
+            var payload_submit = new UserWordleSubmission
+            {
+                Username = username,
+                Date = WordleDate,
+                Guesses = guesses
+            };
+
+            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess?", payload_submit);
+            var responseContent_submit = await response_submit.Content.ReadAsStringAsync();
+        }
+
+        currentGuess = "";
+
+        var payload = new UserWordleSubmission
+        {
+            Username = username,
+            Date = WordleDate,
+            Guesses = guesses
+        };
+
+        var response = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/updateGuess?", payload);
+        var responseContent = await response.Content.ReadAsStringAsync();
+    }
+}
+
