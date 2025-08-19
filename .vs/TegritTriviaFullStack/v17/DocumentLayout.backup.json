@@ -1,77 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\",
+  "WorkspaceRootPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{19975F89-341B-4048-AE46-C7A197BE5B3F}|UserAnswers\\UserAnswer.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\useranswers\\useranswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{19975F89-341B-4048-AE46-C7A197BE5B3F}|UserAnswers\\UserAnswer.csproj|solutionrelative:useranswers\\useranswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07188A76-2E07-45BE-A5C0-63813108683A}|Wordle\\Wordle.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\wordle\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{07188A76-2E07-45BE-A5C0-63813108683A}|Wordle\\Wordle.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\wordle\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{07188A76-2E07-45BE-A5C0-63813108683A}|Wordle\\Wordle.csproj|solutionrelative:wordle\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{19975F89-341B-4048-AE46-C7A197BE5B3F}|UserAnswers\\UserAnswer.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\useranswers\\useranswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19975F89-341B-4048-AE46-C7A197BE5B3F}|UserAnswers\\UserAnswer.csproj|solutionrelative:useranswers\\useranswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\models\\wordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\homepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\homepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\homepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\basicquiz.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}|CreateNewQuiz\\CreateNewQuiz.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\createnewquiz\\createnewquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}|CreateNewQuiz\\CreateNewQuiz.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\createnewquiz\\createnewquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29BB4E1A-C280-4CCF-A8DF-C093055A9AF4}|CreateNewQuiz\\CreateNewQuiz.csproj|solutionrelative:createnewquiz\\createnewquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\userwordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\userwordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\models\\userwordle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\userquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\userquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\models\\userquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\pages\\wordle.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{046088FB-1784-4609-A831-28BC49B0CA7E}|GetQuizByDate\\GetQuizByDate.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\getquizbydate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{046088FB-1784-4609-A831-28BC49B0CA7E}|GetQuizByDate\\GetQuizByDate.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\getquizbydate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{046088FB-1784-4609-A831-28BC49B0CA7E}|GetQuizByDate\\GetQuizByDate.csproj|solutionrelative:getquizbydate\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F9A1C919-A5AF-4CEE-B29B-93A7D086EC23}|TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1F58C50-0560-4843-9867-B2E1A096388C}|TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack.client\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{E1F58C50-0560-4843-9867-B2E1A096388C}|TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj|c:\\users\\gokul.sankar\\source\\repos\\tegrittrivia2\\tegrittrivia\\tegrittriviafullstack\\tegrittriviafullstack.client\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E1F58C50-0560-4843-9867-B2E1A096388C}|TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj|solutionrelative:tegrittriviafullstack\\tegrittriviafullstack.client\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -81,8 +81,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 202,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -104,9 +104,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "UserQuiz.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserQuiz.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -114,24 +114,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "BasicQuiz.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-15T15:17:40.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T15:17:40.39Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAACwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -141,9 +140,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "Wordle.razor.css",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -153,9 +152,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "App.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -165,9 +164,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\GetQuizByDate\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\GetQuizByDate\\Program.cs",
               "RelativeDocumentMoniker": "GetQuizByDate\\Program.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\GetQuizByDate\\Program.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\GetQuizByDate\\Program.cs",
               "RelativeToolTip": "GetQuizByDate\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -177,9 +176,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "QuizQuestion.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\QuizQuestion.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -189,9 +188,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBgAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -201,9 +200,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "Auth.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack.Client\\Pages\\Auth.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -211,13 +210,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Wordle.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\Wordle\\Wordle.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\Wordle\\Wordle.cs",
               "RelativeDocumentMoniker": "Wordle\\Wordle.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\Wordle\\Wordle.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\Wordle\\Wordle.cs",
               "RelativeToolTip": "Wordle\\Wordle.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAAFgAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAACcBAAAAAAAAAAAuwGQBAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T18:58:09.671Z",
               "EditorCaption": ""
@@ -225,16 +224,16 @@
           ]
         },
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 198,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "UserWordle.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\UserWordle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -244,22 +243,21 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "BasicQuiz.razor.css",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\BasicQuiz.razor.css",
               "ViewState": "AgIAACQAAAAAAAAAAAAAAEIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-11T17:47:57.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-11T17:47:57.913Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -269,63 +267,59 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "HomePage.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\HomePage.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-28T17:02:29.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T17:02:29.43Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "CreateNewQuiz.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\CreateNewQuiz\\CreateNewQuiz.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\CreateNewQuiz\\CreateNewQuiz.cs",
               "RelativeDocumentMoniker": "CreateNewQuiz\\CreateNewQuiz.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\CreateNewQuiz\\CreateNewQuiz.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\CreateNewQuiz\\CreateNewQuiz.cs",
               "RelativeToolTip": "CreateNewQuiz\\CreateNewQuiz.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAowHEAAACjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T15:17:43.767Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T15:17:43.767Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserAnswer.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\UserAnswers\\UserAnswer.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\UserAnswers\\UserAnswer.cs",
               "RelativeDocumentMoniker": "UserAnswers\\UserAnswer.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\UserAnswers\\UserAnswer.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\UserAnswers\\UserAnswer.cs",
               "RelativeToolTip": "UserAnswers\\UserAnswer.cs",
-              "ViewState": "AgIAAI0BAAAAAAAAAAAgwKQBAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAJABAAAAAAAAAAAIwKkBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T19:43:51.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T19:43:51.263Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Wordle.cs",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Models\\Wordle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T18:16:08.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T18:16:08.774Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Wordle.razor",
-              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
+              "DocumentMoniker": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
               "RelativeDocumentMoniker": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
-              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
+              "ToolTip": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
               "RelativeToolTip": "TegritTriviaFullStack\\TegritTriviaFullStack\\Components\\Pages\\Wordle.razor",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-13T17:47:53.482Z",
               "EditorCaption": ""

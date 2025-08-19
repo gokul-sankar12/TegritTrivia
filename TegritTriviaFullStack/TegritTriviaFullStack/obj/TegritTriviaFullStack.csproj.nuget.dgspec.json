@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {}
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
+        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
         "projectName": "TegritTriviaFullStack.Client",
-        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
+        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj",
         "packagesPath": "C:\\Users\\gokul.sankar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\obj\\",
+        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -108,14 +108,14 @@
         }
       }
     },
-    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {
+    "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
+        "projectUniqueName": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
         "projectName": "TegritTriviaFullStack",
-        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
+        "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
         "packagesPath": "C:\\Users\\gokul.sankar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\obj\\",
+        "outputPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -137,8 +137,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
-                "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj"
+              "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj": {
+                "projectPath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack.Client\\TegritTriviaFullStack.Client.csproj"
               }
             }
           }

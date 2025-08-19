@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BKEa+TyNL/g=",
+  "dgSpecHash": "1n+CGB2Kf1o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
+  "projectFilePath": "C:\\Users\\gokul.sankar\\source\\repos\\TegritTrivia2\\TegritTrivia\\TegritTriviaFullStack\\TegritTriviaFullStack\\TegritTriviaFullStack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\gokul.sankar\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
