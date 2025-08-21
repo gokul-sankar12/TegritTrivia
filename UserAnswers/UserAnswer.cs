@@ -469,6 +469,8 @@ public class UserAnswer
         updateUserOptionsCmd.Parameters.AddWithValue("@UserOptions", userOptionsJson);
         updateUserOptionsCmd.Parameters.AddWithValue("@UserQuizId", UserQuizId);
         updateUserOptionsCmd.Parameters.AddWithValue("@IsSubmitted", true);
+
+        await updateUserOptionsCmd.ExecuteNonQueryAsync();
         
         _logger.LogInformation("Successfully Updated and Submitted UserQuiz for the given username and quizdate");
 
@@ -613,6 +615,9 @@ public class UserAnswer
                                                        , connection);
         updateUserStatisticsCmd.Parameters.AddWithValue("@QuizzesSubmitted", QuizzesSubmitted++);
         updateUserStatisticsCmd.Parameters.AddWithValue("@AverageScore", NewAverageScore);
+
+        await updateUserStatisticsCmd.ExecuteNonQueryAsync();
+        
         if (requestBody.CorrectAnswers == 10)
         {
             updateUserStatisticsCmd.Parameters.AddWithValue("@NumPerfectScores", NumPerfectScores++);
