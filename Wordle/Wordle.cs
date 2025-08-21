@@ -82,6 +82,7 @@ public class Wordle
     }
 
     [Function("CreateWordOfTheDay_HttpTrigger")]
+    // Supposed to be post request (get for test)
     public async Task<HttpResponseData> CreateWordOfTheDay_HttpTrigger([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "createWordOfTheDay")] HttpRequestData req)
     {
         _logger.LogInformation("C# Timer trigger function executed at: {executionTime}", DateTime.Now);
@@ -146,14 +147,21 @@ public class Wordle
         public List<string> Guesses { get; set; }
     }
 
+    public class CreateUserWordleReq
+    {
+        public string Username { get; set; }
+        public string Date { get; set; }
+    }
+
     [Function("CreateUserWordle")]
+    // Supposed to be post request (get for test)
     public async Task<HttpResponseData> CreateUserWordle([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "username/wordle")] HttpRequestData req)
     {
         _logger.LogInformation("C# Http trigger function processed a request");
 
-        var query = System.Web.HttpUtility.ParseQueryString(req.Url.Query);
-        var username = query["username"];
-        var dateParam = query["date"];
+        var requestBody = await req.ReadFromJsonAsync<CreateUserWordleReq>();
+        var username = requestBody.Username;
+        var dateParam = requestBody.Date;
 
         if (!DateOnly.TryParse(dateParam, out var quizDate))
         {
@@ -195,7 +203,7 @@ public class Wordle
         var UserId = (string) getUserCmdResponse;
 
         // Create a blank UserWordle instance
-        var createBlankUserWordleCmd = new SqlCommand(@"INSERT INTO UserWrodle (Date, UserId, UserSubmissions)
+        var createBlankUserWordleCmd = new SqlCommand(@"INSERT INTO UserWordle (Date, UserId, UserSubmissions)
                                                         OUTPUT INSERTED.UserSubmissions
                                                         VALUES (@Date, @UserId, @UserSubmissions)"
                                                         , connection);
@@ -330,21 +338,30 @@ public class Wordle
                                                 FROM UserWordle
                                                 WHERE UserId = @UserId AND CAST(Date AS DATE) = @Date"
                                                 , connection);
-        getUserCmd.Parameters.AddWithValue("@UserId", UserId);
-        getUserCmd.Parameters.AddWithValue("@Date", quizDate);
+        getUserWordleCmd.Parameters.AddWithValue("@UserId", UserId);
+        getUserWordleCmd.Parameters.AddWithValue("@Date", quizDate);
 
         var getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
 
         if (getUserWordleCmdResponse == null)
         {
             var httpClient = new HttpClient();
-            var responseFromGet = await httpClient.GetAsync($"https://wordle20250818134329.azurewebsites.net/api/username/wordle?username={username}&wordle={dateParam}");
+            var responseFromPost = await httpClient.PostAsync($"https://wordle20250818134329.azurewebsites.net/api/username/wordle?username={username}&wordle={dateParam}", null);
 
-            var content = await responseFromGet.Content.ReadAsStringAsync();
+            var content = await responseFromPost.Content.ReadAsStringAsync();
             _logger.LogInformation(content);
+
+            getUserWordleCmd = new SqlCommand(@"SELECT TOP 1 Id
+                                                FROM UserWordle
+                                                WHERE UserId = @UserId AND CAST(Date AS DATE) = @Date"
+                                                , connection);
+            getUserWordleCmd.Parameters.AddWithValue("@UserId", UserId);
+            getUserWordleCmd.Parameters.AddWithValue("@Date", quizDate);
+
+            getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
         }
 
-        var UserWordleId = (int)getUserWordleCmdResponse;
+        var UserWordleId = (int) getUserWordleCmdResponse;
 
         var getUserSubmissionsCmd = new SqlCommand(@"SELECT TOP 1 UserSubmissions
                                                      FROM UserWordle
@@ -373,6 +390,7 @@ public class Wordle
     }
 
     [Function("UpdateWordleGuess")]
+    // Should be put made get for testing
     public async Task<HttpResponseData> UpdateWordleGuess([HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "wordle/updateGuess")] HttpRequestData req)
     {
         _logger.LogInformation("C# Http trigger function processed a request");
@@ -422,15 +440,15 @@ public class Wordle
             return notFound;
         }
 
-        var UserId = (string)getUserCmdResponse;
+        var UserId = (string) getUserCmdResponse;
 
         // If a UserWordle doesn't exist call CreateUserWordle function otherwise return the corresponding UserSubmissions
         var getUserWordleCmd = new SqlCommand(@"SELECT TOP 1 Id
                                                 FROM UserWordle
                                                 WHERE UserId = @UserId AND CAST(Date AS DATE) = @Date"
                                                 , connection);
-        getUserCmd.Parameters.AddWithValue("@UserId", UserId);
-        getUserCmd.Parameters.AddWithValue("@Date", quizDate);
+        getUserWordleCmd.Parameters.AddWithValue("@UserId", UserId);
+        getUserWordleCmd.Parameters.AddWithValue("@Date", quizDate);
 
         var getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
 
@@ -446,15 +464,19 @@ public class Wordle
         var UserWordleId = (int) getUserWordleCmdResponse;
 
         // Update UserSubmissions for the UserWordle
+        _logger.LogInformation("UserWordleId: " + UserWordleId);
         var updateUserSubmissionsCmd = new SqlCommand(@"UPDATE UserWordle
                                                         SET UserSubmissions = @UserSubmissions,
                                                             WordleCompleted = @WordleCompleted
                                                         WHERE Id = @UserWordleId"
                                                         , connection);
         var userWordleJson = JsonSerializer.Serialize(requestBody.Guesses);
+        _logger.LogInformation("UserSubmissions: " + userWordleJson);
         updateUserSubmissionsCmd.Parameters.AddWithValue("@UserSubmissions", userWordleJson);
         updateUserSubmissionsCmd.Parameters.AddWithValue("@UserWordleId", UserWordleId);
         updateUserSubmissionsCmd.Parameters.AddWithValue("@WordleCompleted", false);
+
+        await updateUserSubmissionsCmd.ExecuteNonQueryAsync();
 
         _logger.LogInformation("Successfully updated UserSubmissions for the given username and date");
 
@@ -520,12 +542,12 @@ public class Wordle
                                                 FROM UserWordle
                                                 WHERE UserId = @UserId AND CAST(Date AS DATE) = @Date"
                                                 , connection);
-        getUserCmd.Parameters.AddWithValue("@UserId", UserId);
-        getUserCmd.Parameters.AddWithValue("@Date", quizDate);
+        getUserWordleCmd.Parameters.AddWithValue("@UserId", UserId);
+        getUserWordleCmd.Parameters.AddWithValue("@Date", quizDate);
 
         var getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
         
-        var UserWordleId = (int)getUserWordleCmdResponse;
+        var UserWordleId = (int) getUserWordleCmdResponse;
 
         // Update UserSubmissions for the UserWordle
         var updateUserSubmissionsCmd = new SqlCommand(@"UPDATE UserWordle
@@ -538,6 +560,8 @@ public class Wordle
         updateUserSubmissionsCmd.Parameters.AddWithValue("@UserWordleId", UserWordleId);
         updateUserSubmissionsCmd.Parameters.AddWithValue("@WordleCompleted", true);
 
+        await updateUserSubmissionsCmd.ExecuteNonQueryAsync();
+
         _logger.LogInformation("Successfully updated UserSubmissions for the given username and date");
 
         var response = req.CreateResponse(HttpStatusCode.OK);
@@ -545,6 +569,47 @@ public class Wordle
         return response;
     }
 
+    [Function("IsValidWord")]
+    public async Task<HttpResponseData> IsValidWord([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "validword/status")] HttpRequestData req)
+    {
+        _logger.LogInformation("C# Http Trigger function processed a request");
+
+        var query = System.Web.HttpUtility.ParseQueryString(req.Url.Query);
+        var word = query["word"];
+
+        if (string.IsNullOrEmpty(word) || string.IsNullOrWhiteSpace(word))
+        {
+            var notFound = req.CreateResponse(HttpStatusCode.NotFound);
+            _logger.LogInformation("No word was provided in the query");
+            await notFound.WriteStringAsync("No word was provided in the query");
+            return notFound;
+        }
+
+        using var connection = new SqlConnection(_connectionString);
+        await connection.OpenAsync();
+
+        var isValidWordCmd = new SqlCommand(@"SELECT Id
+                                              FROM ValidWords
+                                              WHERE Word = @Word"
+                                              , connection);
+        isValidWordCmd.Parameters.AddWithValue("@Word", word);
+
+        var isValidWordResponse = await isValidWordCmd.ExecuteScalarAsync();
+
+        var response = req.CreateResponse(HttpStatusCode.OK);
+        if (isValidWordResponse is null || (int)isValidWordResponse == 0)
+        {
+            _logger.LogInformation("The word is not a valid word");
+            await response.WriteAsJsonAsync("The word is not a valid word");
+        }
+        else
+        {
+            _logger.LogInformation("The word is a valid word");
+            await response.WriteAsJsonAsync("The word is a valid word");
+        }
+        await connection.CloseAsync();
+        return response;
+    }
 
     [Function("InitializeValidWordsTable")]
     public async Task<HttpResponseData> InitializeValidWordsTable([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "validwords/create")] HttpRequestData req)

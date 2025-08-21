@@ -2076,9 +2076,6 @@ C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriv
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\y871c7uunp-tptq2av103.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\ycfqgt25qx-lfu7j35m59.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\ctswvxrv5f-oyz0vx2fzb.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\sz1jxgtld0-4nu0fc4yo3.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\g1dilc76n3-f6lpgzhy9p.gz
-C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\vpmgq2xbir-xbxk1vqhm7.gz
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\staticwebassets.development.json
@@ -2089,3 +2086,6 @@ C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriv
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\refint\TegritTriviaFullStack.Client.dll
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\TegritTriviaFullStack.Client.pdb
 C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\ref\TegritTriviaFullStack.Client.dll
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\sz1jxgtld0-mdb7ftufi6.gz
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\g1dilc76n3-padpd3tjux.gz
+C:\Users\gokul.sankar\source\repos\TegritTrivia\TegritTriviaFullStack\TegritTriviaFullStack.Client\obj\Debug\net8.0\compressed\vpmgq2xbir-giroqypfxo.gz

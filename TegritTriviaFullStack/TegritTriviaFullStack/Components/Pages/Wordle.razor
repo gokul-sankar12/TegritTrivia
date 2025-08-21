@@ -33,18 +33,24 @@
             <p class="wordle-result">@resultMessage</p>
         }
     </div>
+
+    @if (errorMessage != string.Empty)
+    {
+        <div class="alert-danger"> @errorMessage</div>
+    }
 </AuthorizeView>
 
 @code {
     [Parameter]
     public string WordleDate { get; set; }
-    
+
     private string targetWord = "COBRA"; // The word to guess
-    private int wordLength => targetWord.Length;
+    private int wordLength = 5;
     private int maxAttempts = 6;
     private string username = "";
     private string name = "Document Data List";
     private PersistingComponentStateSubscription persistingSubscription;
+    private string errorMessage = "";
 
     private List<string> guesses = new();
     private List<List<string>> guessStatuses = new(); // "correct", "present", "absent"
@@ -57,6 +63,12 @@
         public string Username { get; set; }
         public string Date { get; set; }
         public List<string> Guesses { get; set; }
+    }
+
+    public class CreateUserWordle
+    {
+        public string Username { get; set; }
+        public string Date {get; set; }
     }
 
     protected override async Task OnInitializedAsync()
@@ -94,47 +106,65 @@
         }
         else
         {
-            if (guesses is null)
+            Console.WriteLine(WordleDate);
+
+            // Get Word of the Day
+            string WordOfTheDay = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/date/wordoftheday?date={WordleDate}");
+
+            // Call GetUserSubmissions Azure Function to get user guesses UserSubmissions
+            Console.WriteLine($"https://wordle20250818134329.azurewebsites.net/api/username/wordle/get?username={username}&wordle={WordleDate}");
+            string JsonEncodedUserSubmissions = "";
+            try
             {
-                Console.WriteLine(WordleDate);
-
-                // Get Word of the Day
-                string WordOfTheDay = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/date/wordoftheday?date={WordleDate}");
-
-                // Call GetUserSubmissions Azure Function to get user guesses UserSubmissions
-                string JsonEncodedUserSubmissions = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/username/wordle/get?username={username}&wordle={WordleDate}");
-
-                if (WordOfTheDay == null)
+                JsonEncodedUserSubmissions = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/username/wordle/get?username={username}&wordle={WordleDate}");
+            }
+            catch (Exception ex)
+            {
+                var payload = new CreateUserWordle
                 {
-                    Console.WriteLine("No word found for the given date");
+                    Username = username,
+                    Date = WordleDate,
+                };
+
+                Console.WriteLine(ex.Message);
+                var responseFromPost = await HttpClient.PostAsJsonAsync($"https://wordle20250818134329.azurewebsites.net/api/username/wordle", payload);
+                JsonEncodedUserSubmissions = "[]";
+            }
+
+            if (WordOfTheDay == null)
+            {
+                Console.WriteLine("No word found for the given date");
+            }
+            else
+            {
+                targetWord = WordOfTheDay.Trim().ToUpper();
+                Console.WriteLine("Target Word: " + targetWord);
+                Console.WriteLine("JsonEncodedUserSubmissions: " + JsonEncodedUserSubmissions);
+
+                List<string> UserGuesses;
+
+                if (string.IsNullOrWhiteSpace(JsonEncodedUserSubmissions) || string.IsNullOrEmpty(JsonEncodedUserSubmissions) || JsonEncodedUserSubmissions == "[]")
+                {
+                    Console.WriteLine("User Guesses is emtpy");
+                    UserGuesses = new List<string>();
                 }
                 else
                 {
-                    targetWord = WordOfTheDay;
-
-                    List<string> UserGuesses;
-
-                    if (string.IsNullOrWhiteSpace(JsonEncodedUserSubmissions) || JsonEncodedUserSubmissions == "\"[]\"")
-                    {
-                        UserGuesses = new List<string>();
-                    }
-                    else
-                    {
-                        UserGuesses = JsonSerializer.Deserialize<List<string>>(JsonEncodedUserSubmissions);
-                    }
-
-                    if (UserGuesses is not null && UserGuesses.Count() < 6)
-                    {
-                        for (int i=0; i < UserGuesses.Count(); i++)
-                        {
-                            currentGuess = UserGuesses[i];
-                            SubmitGuess();
-                        }
-                    }
-
-                    Console.WriteLine($"Loaded {UserGuesses.Count()} questions");
-                    StateHasChanged();
+                    UserGuesses = JsonSerializer.Deserialize<List<string>>(JsonEncodedUserSubmissions);
                 }
+
+                if (UserGuesses is not null && UserGuesses.Count() < 6)
+                {
+                    for (int i=0; i < UserGuesses.Count(); i++)
+                    {
+                        Console.WriteLine("Entered for loop for UserGuesses");
+                        currentGuess = UserGuesses[i];
+                        await SubmitGuess();
+                    }
+                }
+
+                Console.WriteLine($"Loaded {UserGuesses.Count()} questions");
+                StateHasChanged();
             }
         }
     }
@@ -152,6 +182,22 @@
 
     private async Task SubmitGuess()
     {
+        var IsValidWord = await HttpClient.GetFromJsonAsync<string>($"https://wordle20250818134329.azurewebsites.net/api/validword/status?word={currentGuess}");
+
+        if (IsValidWord == "The word is not a valid word")
+        {
+            Console.WriteLine(IsValidWord);
+            errorMessage = IsValidWord;
+            return;
+        }
+        else
+        {
+            if (errorMessage == "The word is not a valid word")
+            {
+                errorMessage = "";
+            }
+        }
+
         if (gameOver || currentGuess.Length != wordLength)
             return;
 
@@ -183,7 +229,7 @@
                 Guesses = guesses
             };
 
-            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess?", payload_submit);
+            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess", payload_submit);
             var responseContent_submit = await response_submit.Content.ReadAsStringAsync();
         }
         else if (guesses.Count >= maxAttempts)
@@ -198,21 +244,25 @@
                 Guesses = guesses
             };
 
-            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess?", payload_submit);
+            var response_submit = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/submitGuess", payload_submit);
             var responseContent_submit = await response_submit.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            Console.WriteLine("Updating User Guess");
+
+            var payload = new UserWordleSubmission
+            {
+                Username = username,
+                Date = WordleDate,
+                Guesses = guesses
+            };
+
+            var response = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/updateGuess", payload);
+            var responseContent = await response.Content.ReadAsStringAsync();
         }
 
         currentGuess = "";
-
-        var payload = new UserWordleSubmission
-        {
-            Username = username,
-            Date = WordleDate,
-            Guesses = guesses
-        };
-
-        var response = await HttpClient.PutAsJsonAsync("https://wordle20250818134329.azurewebsites.net/api/wordle/updateGuess?", payload);
-        var responseContent = await response.Content.ReadAsStringAsync();
     }
 }
 
