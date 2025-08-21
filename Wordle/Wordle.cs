@@ -29,7 +29,7 @@ public class Wordle
 
         using var connection = new SqlConnection(_connectionString);
         await connection.OpenAsync();
-        
+
         if (myTimer.ScheduleStatus is not null)
         {
             _logger.LogInformation("Next timer schedule at: {nextSchedule}", myTimer.ScheduleStatus.Next);
@@ -38,7 +38,7 @@ public class Wordle
         var checkDupCmd = new SqlCommand("SELECT COUNT(*) FROM Wordle WHERE CAST(Date AS DATE) = @Today", connection);
         checkDupCmd.Parameters.AddWithValue("@Today", today);
 
-        var count = (int) await checkDupCmd.ExecuteScalarAsync();
+        var count = (int)await checkDupCmd.ExecuteScalarAsync();
 
         if (count == 0)
         {
@@ -200,7 +200,7 @@ public class Wordle
             return notFound;
         }
 
-        var UserId = (string) getUserCmdResponse;
+        var UserId = (string)getUserCmdResponse;
 
         // Create a blank UserWordle instance
         var createBlankUserWordleCmd = new SqlCommand(@"INSERT INTO UserWordle (Date, UserId, UserSubmissions)
@@ -277,7 +277,7 @@ public class Wordle
             return notFound;
         }
 
-        var word = (string) getWordOfTheDayCmdResponse;
+        var word = (string)getWordOfTheDayCmdResponse;
 
         var response = req.CreateResponse(HttpStatusCode.OK);
         await response.WriteAsJsonAsync(word);
@@ -361,7 +361,7 @@ public class Wordle
             getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
         }
 
-        var UserWordleId = (int) getUserWordleCmdResponse;
+        var UserWordleId = (int)getUserWordleCmdResponse;
 
         var getUserSubmissionsCmd = new SqlCommand(@"SELECT TOP 1 UserSubmissions
                                                      FROM UserWordle
@@ -379,7 +379,7 @@ public class Wordle
             return notFound;
         }
 
-        var UserSubmissions = (string) getUserSubmissionsCmdResponse;
+        var UserSubmissions = (string)getUserSubmissionsCmdResponse;
 
         _logger.LogInformation("Successfully returned a UserSubmission using the given username and date");
 
@@ -440,7 +440,7 @@ public class Wordle
             return notFound;
         }
 
-        var UserId = (string) getUserCmdResponse;
+        var UserId = (string)getUserCmdResponse;
 
         // If a UserWordle doesn't exist call CreateUserWordle function otherwise return the corresponding UserSubmissions
         var getUserWordleCmd = new SqlCommand(@"SELECT TOP 1 Id
@@ -461,7 +461,7 @@ public class Wordle
             _logger.LogInformation(content);
         }
 
-        var UserWordleId = (int) getUserWordleCmdResponse;
+        var UserWordleId = (int)getUserWordleCmdResponse;
 
         // Update UserSubmissions for the UserWordle
         _logger.LogInformation("UserWordleId: " + UserWordleId);
@@ -546,8 +546,8 @@ public class Wordle
         getUserWordleCmd.Parameters.AddWithValue("@Date", quizDate);
 
         var getUserWordleCmdResponse = await getUserWordleCmd.ExecuteScalarAsync();
-        
-        var UserWordleId = (int) getUserWordleCmdResponse;
+
+        var UserWordleId = (int)getUserWordleCmdResponse;
 
         // Update UserSubmissions for the UserWordle
         var updateUserSubmissionsCmd = new SqlCommand(@"UPDATE UserWordle
@@ -621,8 +621,8 @@ public class Wordle
         await connection.OpenAsync();
 
         var lines = await File.ReadAllLinesAsync(path);
-        
-        for (int i=0; i < lines.Length; i++)
+
+        for (int i = 0; i < lines.Length; i++)
         {
             var initializeValidWordsTableCmd = new SqlCommand(@"INSERT INTO ValidWords (Word)
                                                                 OUTPUT INSERTED.Id
@@ -638,7 +638,7 @@ public class Wordle
                 break;
             }
         }
-        
+
         var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
         _logger.LogInformation("Successfully initialized ValidWords table in Azure SQL Database");
         await connection.CloseAsync();

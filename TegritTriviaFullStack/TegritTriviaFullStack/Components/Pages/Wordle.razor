@@ -68,7 +68,7 @@
     public class CreateUserWordle
     {
         public string Username { get; set; }
-        public string Date {get; set; }
+        public string Date { get; set; }
     }
 
     protected override async Task OnInitializedAsync()
@@ -155,7 +155,7 @@
 
                 if (UserGuesses is not null && UserGuesses.Count() < 6)
                 {
-                    for (int i=0; i < UserGuesses.Count(); i++)
+                    for (int i = 0; i < UserGuesses.Count(); i++)
                     {
                         Console.WriteLine("Entered for loop for UserGuesses");
                         currentGuess = UserGuesses[i];
